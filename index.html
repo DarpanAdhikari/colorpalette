@@ -16,7 +16,7 @@
       <img src="logo for color palatte.png" alt="logo" width="40px" height="40px" title="scroll top" draggable="false" id="home-btn">
     </div>
     <div class="search-engine">
-      <input type="text">
+      <input type="text" placeholder="search &#9742;">
     </div>
     <div class="nav-bar">
       <span class="bar">&#9776;</span>
@@ -719,6 +719,15 @@ search.addEventListener("change",()=>{
   var anchorTag = document.createElement("a");
 			document.body.appendChild(anchorTag);
       anchorTag.href = `#${search.value}`;
+      search.disabled = true;
+      document.querySelector(`#${search.value}`).style.background = "#00FF00";
+      var text = search.value;
+      search.value = "searching..";
+      setTimeout(()=>{
+        search.value = text;
+      document.querySelector(`#${search.value}`).style.background = null;
+      search.disabled = false;
+      },2000)
       anchorTag.click();
 });
 

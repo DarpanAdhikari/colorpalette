@@ -703,14 +703,7 @@
     themeBox = document.querySelector("#theme-mode"),
     search = document.querySelector(".navbar .search-engine input"),
     seachText = document.querySelector("#search");
-    window.addEventListener('scroll', ()=>{
-  var scroLL = this.scrollY;
-  if(scroLL > 20){
-    navBar.classList.add("sticky");
-    }else{
-    navBar.classList.remove("sticky");
-   }
-   });
+    
    homeBtn.onclick = ()=>{
   document.body.scrollTop = 0;
   document.documentElement.scrollTop=0;
@@ -719,14 +712,14 @@ search.addEventListener("change",()=>{
   var anchorTag = document.createElement("a");
 			document.body.appendChild(anchorTag);
       anchorTag.href = `#${search.value}`;
-      search.disabled = true;
+//       search.disabled = true;
       document.querySelector(`#${search.value}`).style.background = "#00FF00";
       var text = search.value;
       search.value = "searching..";
       setTimeout(()=>{
         search.value = text;
       document.querySelector(`#${search.value}`).style.background = null;
-      search.disabled = false;
+//       search.disabled = false;
       },2000)
       anchorTag.click();
 });

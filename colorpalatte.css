@@ -180,9 +180,6 @@ background: rgba(0, 0, 0, 0.6);
 section{
   padding: 55px 30px;
 }
-section:first-child{
-  padding-top: 0;
-}
 .card-container .card{
   width: 120px;
   height: 180px;

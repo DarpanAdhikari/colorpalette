@@ -29,6 +29,9 @@ background: rgba(0, 0, 0, 0.6);
 }
 
 .navbar{
+  position: fixed;
+  top: 0;
+  z-index: 100;
   width: 100%;
   height: max-content;
   background: linear-gradient(30deg,yellow,green,blue,#101010,#532c05,#83056e,#ff0000);
@@ -37,11 +40,6 @@ background: rgba(0, 0, 0, 0.6);
   border-bottom-right-radius: 10px;
   font-family: "Ubuntu",sans-serif;
   user-select: none;
-}
-.navbar.sticky{
-  position: fixed;
-  top: 0;
-  z-index: 100;
 }
 .navbar .notification{
   position: fixed; 
@@ -172,7 +170,7 @@ background: rgba(0, 0, 0, 0.6);
 .container{
   width: 100%;
   height: 100%;
-  padding: 5px 10px 10px 25px;
+  padding: 50px 10px 10px 25px;
   font-family: "Poppins",sans-serif;
 }
 .card-container{

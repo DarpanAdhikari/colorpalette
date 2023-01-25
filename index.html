@@ -693,20 +693,21 @@ search.addEventListener("change",()=>{
 });
 
   colorCode.forEach(coder=>{
-     coder.onclick=()=>{
+    coder.onclick=()=>{
      if(coder.textContent != "copied"){
-     var code = coder.textContent;
-      navigator.clipboard.writeText(code);
-      notification.textContent = code;
-     }
-      coder.setAttribute("title","copied");  
-      var first = coder.textContent;
+      var code = coder.textContent;
       coder.textContent = "copied";
+      navigator.clipboard.writeText(code);
+      coder.setAttribute("title","copied");  
+      notification.textContent = code;
       notify.classList.add("active");
       setTimeout(function(){
       notify.classList.remove("active");
-      coder.textContent = first;
+      coder.textContent = code;
       },2000);
+     }else{
+      return;
+     }
     }
   });
   symbolCard.forEach(card=>{

@@ -764,6 +764,13 @@ search.addEventListener("change",()=>{
           card.classList.toggle("dark");
         });
   }
+    document.addEventListener("visibilitychange",()=>{
+      if(document.visibilityState == "visible"){
+        document.title = "Drp-Color Palette & icon";
+      }else{
+        document.title = "Open me..";
+      }   
+    });
   </script>
 </body>
 </html>

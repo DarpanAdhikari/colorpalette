@@ -684,6 +684,7 @@
      </div>
  </section>
 </div>
+  <div class="greeting-field"></div>
  <footer>
   <span><span>&#169;</span><span id="date"></span><a href="https://darpanadhikari.com.np"> DarpanAdhikari</a> || All right reserved</span>
 </footer>
@@ -790,6 +791,20 @@ search.addEventListener("change",()=>{
      document.querySelector(".bottom-network-check").textContent = "Back to online🥰";
      document.querySelector(".bottom-network-check").style.color ="green";
   });
+  window.addEventListener("load",()=>{
+  document.querySelector(".greeting-field").classList.add("active");
+  setTimeout(()=>{
+    document.querySelector(".greeting-field").classList.remove("active");
+    document.querySelector(".greeting-field").style.display = "none";
+  },3000);
+});
+
+    const greet = ["Good Morning 🙏","Good Afternoon 🙏","Good Evening 🙏","Good wishes for your dream 🙏"];
+    const thisTime = new Date().getHours();
+
+    let greetIng = thisTime <= 12 && thisTime >= 0 ? 0 : thisTime >= 12 && thisTime <= 17 ? 1 : thisTime >=17 && thisTime <= 21 ? 2 : thisTime >= 21 && thisTime <=23.99 ? 3 : 0;
+    document.querySelector(".greeting-field").textContent = greet[greetIng];
+
   </script>
 </body>
 </html>

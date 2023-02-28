@@ -51,6 +51,17 @@
   </nav>
   <!-- -------white--------- -->
 <div class="container">
+	 <section id="converter">
+      <div class="converColorCode">
+        <h3>Color Code Converter</h3> <br>
+        <label>Hex Color</label>
+        <input type="text" placeholder="paste color code">
+        <label>RGB</label>
+        <input type="text" placeholder="paste color code">
+        <label>Choose Color</label>
+        <input type="color">
+      </div>
+    </section>
  <section id="white">
   <h2 class="title">White</h2>
   <div class="card-container white">
@@ -804,6 +815,42 @@ search.addEventListener("change",()=>{
 
     let greetIng = thisTime <= 12 && thisTime >= 0 ? 0 : thisTime >= 12 && thisTime <= 17 ? 1 : thisTime >=17 && thisTime <= 21 ? 2 : thisTime >= 21 && thisTime <=23.99 ? 3 : 0;
     document.querySelector(".greeting-field").textContent = greet[greetIng];
+	  
+	  
+	  // color code converter script--------
+    const colorCodeInput = document.querySelectorAll("#converter .converColorCode input");
+    function choosedColorCode() {
+      let chooseColor = colorCodeInput[2].value,
+        rgbInput = colorCodeInput[1].value,
+        hexInput = colorCodeInput[0].value;
+      let rgb = rgbaGenerator(chooseColor);
+      let hex = colorToHex(chooseColor);
+      colorCodeInput[1].value = rgb;
+      colorCodeInput[0].value = hex;
+     document.querySelector(".converColorCode").style.background = rgb;
+    }
+// color code by input field------------
+    function rgbaGenerator(colorShadow) {
+      let r = parseInt(colorShadow.substr(1, 2), 16),
+        g = parseInt(colorShadow.substr(3, 2), 16),
+        b = parseInt(colorShadow.substr(5, 2), 16);
+      return `rgb(${r},${g},${b})`;
+    }
+    const colorToHex = (color) => {
+      const hexadecimal = color.toString(16);
+      return hexadecimal.length == 1 ? "0" + hexadecimal : hexadecimal;
+    }
+
+// color code by rgb------------------
+    colorCodeInput[0].oninput = () => {
+      hexColorCode();
+    }
+    colorCodeInput[1].oninput = () => {
+      rgbColorCode();
+    }
+    colorCodeInput[2].oninput = () => {
+      choosedColorCode();
+    }
 
   </script>
 </body>

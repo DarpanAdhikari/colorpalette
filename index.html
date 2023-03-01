@@ -55,9 +55,9 @@
       <div class="converColorCode">
         <h3>Color Code Converter</h3> <br>
         <label>Hex Color</label>
-        <input type="text" placeholder="paste color code">
+        <input type="text" placeholder="paste color code" readonly>
         <label>RGB</label>
-        <input type="text" placeholder="paste color code">
+        <input type="text" placeholder="paste color code" readonly>
         <label>Choose Color</label>
         <input type="color">
       </div>
@@ -828,6 +828,12 @@ search.addEventListener("change",()=>{
       colorCodeInput[1].value = rgb;
       colorCodeInput[0].value = hex;
      document.querySelector(".converColorCode").style.background = rgb;
+colorCodeInput[0].onclick=()=>{
+navigator.clipboard.writeText(colorCodeInput[0].value);
+}
+colorCodeInput[1].onclick=()=>{
+navigator.clipboard.writeText(colorCodeInput[1].value);
+}
     }
 // color code by input field------------
     function rgbaGenerator(colorShadow) {

@@ -830,9 +830,11 @@ search.addEventListener("change",()=>{
      document.querySelector(".converColorCode").style.background = rgb;
 colorCodeInput[0].onclick=()=>{
 navigator.clipboard.writeText(colorCodeInput[0].value);
+colorCodeInput[0].setAttribute("title","copied");
 }
 colorCodeInput[1].onclick=()=>{
 navigator.clipboard.writeText(colorCodeInput[1].value);
+colorCodeInput[1].setAttribute("title","copied");
 }
     }
 // color code by input field------------
